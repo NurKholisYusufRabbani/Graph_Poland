@@ -82,5 +82,3 @@ for kota, jalur in data_kota.items():
     peta.tambahkanKotaDanJalur(kota, jalur)
 
 peta.printPeta()
-                      
-                
