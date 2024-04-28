@@ -59,7 +59,7 @@ class Peta:
             return true 
         return false
 
-peta = peta()
+peta = Peta()
 
 #Data kota dan jalur-jalurnya
 data_kota = {
