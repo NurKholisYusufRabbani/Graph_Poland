@@ -45,8 +45,8 @@ class Peta:
         #tambahkan kota2 ke daftar kota1 dan sebaliknya 
             self.jalur_kota[kota1].append(kota2)
             self.jalur_kota[kota2].append(kota1)
-            return true
-        return false
+            return True
+        return False
         
     def hapusjalan(self,kota1,kota2):
         #menghapus jalan antara dua kota
@@ -56,8 +56,8 @@ class Peta:
                 self.jalur_kota[kota1].remove(kota2)
             if kota1 in self.jalur_kota[kota2]:
                 self.jalur_kota[kota2].remove(kota1)
-            return true 
-        return false
+            return True 
+        return False
 
 peta = Peta()
 
