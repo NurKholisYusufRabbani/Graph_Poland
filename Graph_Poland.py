@@ -57,5 +57,26 @@ class Peta:
                                  return true 
                                return false
                             peta = peta()
+#Data kota dan jalur-jalurnya
+data_kota = {
+    "Bytow": ["Koscierzyna", "Czersk"],
+    "Koscierzyna": ["Bytow", "Czersk", "Sopot", "Gdansk"],
+    "Sopot": ["Koscierzyna", "Gdansk"],
+    "Gdansk": ["Sopot", "Koscierzyna", "Tczew", "Nowy Dwor Gdanski", "Starogard Gdanski"],
+    "Czersk": ["Bytow", "Koscierzyna", "Starogard Gdanski"],
+    "Starogard Gdanski": ["Gdansk", "Czersk", "Tczew"],
+    "Tczew": ["Starogard Gdanski", "Gdansk", "Nowy Dwor Gdanski", "Malbork"],
+    "Nowy Dwor Gdanski": ["Tczew", "Gdansk", "Krynica Morska", "Elblag"],
+    "Elblag": ["Malbork", "Nowy Dwor Gdanski"],
+    "Malbork": ["Tczew", "Elblag", "Sztum"],
+    "Sztum": ["Malbork"],
+    "Krynica Morska": ["Nowy Dwor Gdanski"]
+}
+
+#Menambahkan kota dan jalur-jalurnya ke dalam peta
+for kota, jalur in data_kota.items():
+    peta.tambahkanKotaDanJalur(kota, jalur)
+
+peta.printPeta()
                       
                 
