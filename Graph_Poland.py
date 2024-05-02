@@ -2,18 +2,6 @@ class Peta:
     def __init__(self):
         # Inisialisasi dictionary untuk menyimpan daftar kota dan jalannya
         self.jalur_kota = {}
-
-    def tambahkanKotaDanJalur(self, nama_kota, jalur):
-        if nama_kota not in self.jalur_kota:
-            self.jalur_kota[nama_kota] = jalur
-            #Tambahkan kota ini ke jalur-jalur kota lain
-            for kota in jalur:
-                if kota in self.jalur_kota:
-                    self.jalur_kota[kota].append(nama_kota)
-                else:
-                    self.jalur_kota[kota] = [nama_kota]
-            return True
-        return False
     
     def printPeta(self):
         # Mencetak daftar kota beserta jalannya
@@ -39,7 +27,7 @@ class Peta:
             return True
         return False
         
-    def tambahkanjalan(self,kota1,kota2):
+    def tambahkanJalan(self,kota1,kota2):
         #menambahkan jalan antar dua kota
         if kota1 in self.jalur_kota and kota2 in self.jalur_kota:
         #tambahkan kota2 ke daftar kota1 dan sebaliknya 
@@ -48,7 +36,7 @@ class Peta:
             return True
         return False
         
-    def hapusjalan(self,kota1,kota2):
+    def hapusJalan(self,kota1,kota2):
         #menghapus jalan antara dua kota
         if kota1 in self.jalur_kota and kota2 in self.jalur_kota:
             #hapus kota2 dari daftar kota1 dan sebaliknya 
@@ -61,24 +49,51 @@ class Peta:
 
 peta = Peta()
 
-#Data kota dan jalur-jalurnya
-data_kota = {
-    "Bytow": ["Koscierzyna", "Czersk"],
-    "Koscierzyna": ["Bytow", "Czersk", "Sopot", "Gdansk"],
-    "Sopot": ["Koscierzyna", "Gdansk"],
-    "Gdansk": ["Sopot", "Koscierzyna", "Tczew", "Nowy Dwor Gdanski", "Starogard Gdanski"],
-    "Czersk": ["Bytow", "Koscierzyna", "Starogard Gdanski"],
-    "Starogard Gdanski": ["Gdansk", "Czersk", "Tczew"],
-    "Tczew": ["Starogard Gdanski", "Gdansk", "Nowy Dwor Gdanski", "Malbork"],
-    "Nowy Dwor Gdanski": ["Tczew", "Gdansk", "Krynica Morska", "Elblag"],
-    "Elblag": ["Malbork", "Nowy Dwor Gdanski"],
-    "Malbork": ["Tczew", "Elblag", "Sztum"],
-    "Sztum": ["Malbork"],
-    "Krynica Morska": ["Nowy Dwor Gdanski"]
-}
-
-#Menambahkan kota dan jalur-jalurnya ke dalam peta
-for kota, jalur in data_kota.items():
-    peta.tambahkanKotaDanJalur(kota, jalur)
+peta.tambahkanKota("Bytow")
+peta.tambahkanJalan("Bytow", "Koscierzyna")
+peta.tambahkanJalan("Bytow", "Czersk")
+peta.tambahkanKota("Koscierzyna")
+peta.tambahkanJalan("Koscierzyna", "Bytow")
+peta.tambahkanJalan("Koscierzyna", "Czersk")
+peta.tambahkanJalan("Koscierzyna", "Sopot")
+peta.tambahkanJalan("Koscierzyna", "Gdansk")
+peta.tambahkanKota("Sopot")
+peta.tambahkanJalan("Sopot", "Koscierzyna")
+peta.tambahkanJalan("Sopot", "Gdansk")
+peta.tambahkanKota("Gdansk")
+peta.tambahkanJalan("Gdansk", "Sopot")
+peta.tambahkanJalan("Gdansk", "Koscierzyna")
+peta.tambahkanJalan("Gdansk", "Tczew")
+peta.tambahkanJalan("Gdansk", "Nowy Dwor Gdanski")
+peta.tambahkanJalan("Gdansk", "Starogard Gdanski")
+peta.tambahkanKota("Czersk")
+peta.tambahkanJalan("Czersk", "Bytow")
+peta.tambahkanJalan("Czersk", "Koscierzyna")
+peta.tambahkanJalan("Czersk", "Starogard Gdanski")
+peta.tambahkanKota("Starogard Gdanski")
+peta.tambahkanJalan("Starogard Gdanski", "Gdansk")
+peta.tambahkanJalan("Starogard Gdanski", "Czersk")
+peta.tambahkanJalan("Starogard Gdanski", "Tczew")
+peta.tambahkanKota("Tczew")
+peta.tambahkanJalan("Tczew", "Starogard Gdanski")
+peta.tambahkanJalan("Tczew", "Gdansk")
+peta.tambahkanJalan("Tczew", "Nowy Dwor Gdanski")
+peta.tambahkanJalan("Tczew", "Malbork")
+peta.tambahkanKota("Nowy Dwor Gdanski")
+peta.tambahkanJalan("Nowy Dwor Gdanski", "Tczew")
+peta.tambahkanJalan("Nowy Dwor Gdanski", "Gdansk")
+peta.tambahkanJalan("Nowy Dwor Gdanski", "Krynica Morska")
+peta.tambahkanJalan("Nowy Dwor Gdanski", "Elblag")
+peta.tambahkanKota("Elblag")
+peta.tambahkanJalan("Elblag", "Malbork")
+peta.tambahkanJalan("Elblag", "Nowy Dwor Gdanski")
+peta.tambahkanKota("Malbork")
+peta.tambahkanJalan("Malbork", "Tczew")
+peta.tambahkanJalan("Malbork", "Elblag")
+peta.tambahkanJalan("Malbork", "Sztum")
+peta.tambahkanKota("Sztum")
+peta.tambahkanJalan("Sztum", "Malbork")
+peta.tambahkanKota("Krynica Morska")
+peta.tambahkanJalan("Krynica Morska", "Nowy Dwor Gdanski")
 
 peta.printPeta()
